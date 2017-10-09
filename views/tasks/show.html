@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Saved Recipes</title>
+	<link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+	<script src="../js/jquery.js"></script>
+  <script src="../js/script.js"></script>
+</head>
+<body>
+<div class="container">
+<h1>Saved Recipes</h1>
+	<img src="{{{image}}}" class="saved_image">
+<h2>{{name}}</h2>
+<p id="italicize">{{beverageType}}</p>
+<p>{{measurments}} {{ingredients}}</p>
+<p>{{instructions}}</p>
+<a href="/recipes/{{id}}/edit" class="button">Edit Drink</a><br>
+<button id="delete" data-id={{id}} class="button">Delete Drink</button><br>
+<a class="button" href="/tasks">Back to drinks</a>
+</div>
+</body>
+</html>

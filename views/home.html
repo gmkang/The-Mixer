@@ -11,6 +11,7 @@
 	
 	{{#alcohol}}
 	<img src="{{{strDrinkThumb}}}">
+	<form action="/recipes" method="GET">
 	<p id="alcoholPref">{{strAlcoholic}}</p>
 		<button id="refresh">Another, please!</button>
 	<h2>{{strDrink}}<h2>
@@ -19,9 +20,10 @@
 		<li>{{strMeasure2}} {{strIngredient2}}</li>
 		<li>{{strMeasure3}} {{strIngredient3}}</li>
 		<li>{{strMeasure4}} {{strIngredient4}}</li>
+		<li>{{strMeasure5}} {{strIngredient5}}</li>
 	</ul>
 	<p id="instructions">{{strInstructions}}</p>
-	<button id="save">SAVE</button>
+	<button type="submit" value="submit" id="save">SAVE</button>
 	{{/alcohol}}
 	<a href="/recipes/new">Add New Recipe</a>
 </body>

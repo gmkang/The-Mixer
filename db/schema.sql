@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS savedRecipes;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS savedRecipes CASCADE;
 
 
 CREATE TABLE users (
@@ -10,12 +10,12 @@ CREATE TABLE users (
 );
 
 CREATE TABLE savedRecipes (
-	id SERIAL PRIMARY KEY,
+	id BIGSERIAL PRIMARY KEY,
 	name VARCHAR,
-	-- measurements VARCHAR,
+	measurements VARCHAR,
 	ingredients VARCHAR,
 	instructions TEXT,
 	image TEXT,
 	beverageType VARCHAR,
-	user_id SERIAL REFERENCES users(id)
+	user_id BIGINT REFERENCES users(id)
 );

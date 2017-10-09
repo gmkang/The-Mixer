@@ -4,7 +4,7 @@ const pgp = require('pg-promise')();
 const db = pgp({
 	host: 'localhost',
 	port: 5432,
-	database: 'the_mixer',
+	database: 'cookin_culture',
 	user: 'matthewkim',
 	password: 'pw'
 });
@@ -15,16 +15,14 @@ function sql(file) {
 	return new pgp.QueryFile(fullPath, { minify: true });
 }
 
-// Globally creating a QueryFile, once per file:
-const sqlFindUser = sql('./schema.sql');
-db.query(sqlFindUser)
+const sqlStatements = sql('./schema.sql');
+db.query(sqlStatements)
 	.then(user => {
 		console.log(user);
 	})
 	.catch(error => {
-		if (error instanceof pgp.errors.QueryFileError) {
-			// => error is related to the QueryFile
-		}
-	});
+		throw error;
+	})
+
 
 module.exports = db;

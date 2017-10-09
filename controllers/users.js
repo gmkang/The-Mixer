@@ -32,16 +32,16 @@ router.get('/logout', (req,res) => {
 	res.redirect('/');
 })
 
-router.get(
-	'/recipes',
-	auth.restrict,
-	User.findByEmailMiddleware,
-	(req, res) => {
-		console.log('in handler for /recipes');
-		console.log('req.user:');
-		console.log(req.user);
-		res.render('/recipes', { user: res.locals.userData });
-	}
-);
+// router.get(
+// 	'/recipes',
+// 	auth.restrict,
+// 	User.findByEmailMiddleware,
+// 	(req, res) => {
+// 		console.log('in handler for /recipes');
+// 		console.log('req.user:');
+// 		console.log(req.user);
+// 		res.render('/recipes', { user: res.locals.userData });
+// 	}
+// );
 
 module.exports = router;

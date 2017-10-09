@@ -29,7 +29,7 @@ Recipe.findAll = (req, res, next) => {
 }
 
 Recipe.findById = (req, res, next) => {
-	const {id} = req.params;
+	const { id } = req.params;
 	db.oneOrNone(`SELECT * FROM savedRecipes WHERE id=$1`, [id])
 	.then(saved => {
 		res.locals.saved = saved;
@@ -43,7 +43,7 @@ Recipe.findById = (req, res, next) => {
 Recipe.create = (req, res, next) => {
   const {name, measurements, ingredients, instructions, image, beverageType} = req.body;
   console.log(req.body);
-  db.one(`INSERT INTO savedRecipes (name, measurements, ingredients, instructions, image, beverageType) VALUES($1, $2, $3, $4, $5, $6) RETURNING *`, [name, measurements, ingredients, instructions, image, beverageType])
+  db.one(`INSERT INTO savedRecipes (name, measurements, ingredients, instructions, image, beverageType, user_id) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [name, measurements, ingredients, instructions, image, beverageType, req.user.id])
     .then(created => {
       res.locals.created = created;
       console.log(res.locals.created);
@@ -55,13 +55,13 @@ Recipe.create = (req, res, next) => {
 }
 
 Recipe.update = (req, res, next)  => {
-	const {name, measurements, ingredients, instructions, image, beverageType} = req.body;
-  const {id} = req.params;
+	const { name, measurements, ingredients, instructions, image, beverageType } = req.body;
+  const { id } = req.params;
   console.log(req.body);
   console.log(req.params);
  	db.oneOrNone(`UPDATE savedRecipes SET 
  		name = $1, measurements = $2, ingredients = $3, instructions = $4, image = $5, beverageType =$6 
- 		WHERE id = $3 RETURNING *`,
+ 		WHERE id = $7 RETURNING *`,
  		[name, measurements, ingredients, instructions, image, beverageType, id])
  	.then(edit => {
  		res.locals.edit = edit;
@@ -71,5 +71,16 @@ Recipe.update = (req, res, next)  => {
  		console.log(`ERROR with UPDATE: ${err}`)
  	})
 }
+
+Recipe.destroy = (req, res, next) => {
+	const { id } = req.params;
+	db.none('DELETE FROM savedRecipes WHERE id=$1', [id])
+	.then(() => {
+		next();
+	})
+	.catch(err => {
+		console.log(`Error DELETING! ${err}`)
+	});
+};
 
 module.exports = Recipe;
