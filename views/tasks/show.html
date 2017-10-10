@@ -12,26 +12,26 @@
 </head>
 <body>
 <div class="container">
-	<a href="/tasks/show" class="side">Archives</a>
+	<a href="/recipes/show" class="side">Archives</a>
 	</body><br>
 	<a href="/users/logout" class="side" id="logout">Logout</a>
 	<h1 id="saved_h1">The Mixer</h1>
 <h3 id="saved_h3">Saved Recipes</h3>
-<div class="six columns">
+<!-- <div class="eight columns"> -->
 <img src="{{{image}}}" class="saved_image">
- <div class="six columns offset-by-seven">
+<!--  <div class="six columns offset-by-seven"> -->
 	
-	<div class="container1">
+	<div class="container2">
 <h2>{{name}}</h2>
 <p>{{beverageType}}</p>
-<p>{{measurements}} {{ingredients}}</p>
-<p>{{instructions}}</p>
+<p id="saved_ingredients">{{measurements}} {{ingredients}}</p>
+<p id="saved_instructions">{{instructions}}</p>
 Tried: <input data-id={{id}} type="checkbox" name="complete" id="complete" {{complete}}><br />
 <a href="/recipes/{{id}}/edit" class="button">Edit Drink</a><br>
 <button id="delete" data-id={{id}} class="button">Delete Drink</button><br>
-<a class="button" href="/tasks">Back to drinks</a>
-</div>
-</div>
+<a class="button" href="/recipes">Back to drinks</a>
+<!-- </div>
+</div> -->
 </div>
 </body>
 </html>

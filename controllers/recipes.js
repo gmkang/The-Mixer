@@ -77,16 +77,11 @@ router.put('/:id/complete', Recipe.complete, (req, res) => {
   res.send('changes complete');
 })
 
-// router.delete('/:id/show', auth.restrict,
-// 	Recipe.destroy, (req, res) => {
-// 		console.log('recipe deleting from controller')
-// 		res.redirect('tasks/show', res.locals.saved);
-// 	})
-// router.delete('/:id', auth.restrict,
-// 	Recipe.destroy, (req, res) => {
-// 		res.send('deleted')
-// 	})
 
+router.delete('/:id', auth.restrict,
+	Recipe.destroy, (req, res) => {
+		res.send('deleted')
+	})
 
 
 module.exports = router;

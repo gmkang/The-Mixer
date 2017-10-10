@@ -88,13 +88,29 @@ img {
 	margin-left: 5px;
 }
 
+
 .container1 {
-	width: 80%;
-	height: 80%;
+	font-size: 20px;
+	float: right;
+	margin: 2px;
+	width: 90%;
+	height: 90%;
 }
 
-.container1 p {
+.container2 {
+	float: right;
+	margin-top: 37px;
+	width: 40%;
+	height: 90%;
+}
+
+#saved_ingredients {
+	font-weight: 4em;
 	font-size: 18px;
+}
+
+#saved_instructions {
+	font-size: 25px;
 }
 
 #new {
@@ -162,11 +178,15 @@ img {
 	height: 500px;
 	width: 500px;
 	left: 15%;
+	margin-top: 10px;
+	float: left;
+	margin: 20px;
 }
 
 #saved_h3 {
 	text-align: center;
 	margin: 0 auto;
+	margin-bottom: 23px;
 }
 
 #saved_h1 {

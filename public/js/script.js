@@ -19,7 +19,7 @@ $(() => {
 			image: $('#img_url').val()
 		}
 
-		$.ajax('/tasks/', {
+		$.ajax('/recipes/', {
 			method: 'POST',
 			data: newData,
 			success: data => {
@@ -92,38 +92,31 @@ $('#ingredients > li').each(function(index) {
 			data: recipeData,
 			success: data => {
 				window.location.href = `/recipes/${data.id}`;
+				// window.location.href = '/recipes/show';
 		},
 			error: err => console.log(err)
 		});
 
 });
 
-// $('#delete').on('click', e => {
-// 	e.preventDefault();
-// 	console.log('deleted!')
-// }
-// 	console.log('Deleting Drink!')
-// 	const id = $('event.target')
-// 	$.ajax({
-// 		url: `/tasks/show/${id}`,
-// 		type: 'DELETE',
-// 		success: (data) => {
-// 			$('#delete[data-id=${id}]').remove();
-// 		},
-// 		error: (err) => {
-// 			console.log(err);
-// 		}
-// 	})
-// }
-// 		method: 'DELETE', 
-// 		url: $(this).data('url')
-// 		success: data => {
+$('#delete').on('click', e => {
+	e.preventDefault();
+	console.log('deleted!')
 
-// 			window.location.href = '/tasks/{data.id}';
-// 		}
-// 		error: err => console.log(err)
-// 	})
-// })
+	console.log('Deleting Drink!')
+	const id = $(e.target).attr('data-id')
+	$.ajax({
+		url: `/recipes/${id}`,
+		type: 'DELETE',
+		success: (data) => {
+			window.location.href= '/recipes';
+		},
+		error: (err) => {
+			console.log(err);
+		}
+	})
+})
+
 
 
 

@@ -42,7 +42,7 @@ Router.get('/', (req, res) => {
 app.use('/', Router);
 app.use('/recipes', recipeController);
 app.use('/users', userController);
-app.use('/tasks', recipeController);
+// app.use('/tasks', recipeController);
 
 app.use(express.static(__dirname + '/public'));
 
