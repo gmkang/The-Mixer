@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Saved Recipes</title>
-	<link rel="stylesheet" href="/css/style.css">
- <link rel="stylesheet" href="../css/normalize.css">
-  <link rel="stylesheet" href="../css/skeleton.css">
-  <link href="https://fonts.googleapis.com/css?family=Acme|BenchNine|Francois+One|Satisfy|Rouge+Script" rel="stylesheet">
-	<script src="../js/jquery.js"></script>
-  <script src="../js/script.js"></script>
+    <meta charset="UTF-8">
+    <title>Saved Recipes</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/skeleton.css">
+    <link href="https://fonts.googleapis.com/css?family=Acme|BenchNine|Francois+One|Satisfy|Rouge+Script" rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+    <script src="../js/script.js"></script>
 </head>
+
 <body>
-<div class="container">
-	<a href="/recipes/show" class="side">Archives</a>
-	</body><br>
-	<a href="/users/logout" class="side" id="logout">Logout</a>
-	<h1 id="saved_h1">The Mixer</h1>
+    <div class="container">
+        <a href="/recipes/show" class="side">Archives</a>
+</body>
+<br>
+<a href="/users/logout" class="side" id="logout">Logout</a>
+<h1 id="saved_h1">The Mixer</h1>
 <h3 id="saved_h3">Saved Recipes</h3>
-<!-- <div class="eight columns"> -->
 <img src="{{{image}}}" class="saved_image">
-<!--  <div class="six columns offset-by-seven"> -->
-	
-	<div class="container2">
-<h2>{{name}}</h2>
-<p>{{beverageType}}</p>
-<p id="saved_ingredients">{{measurements}} {{ingredients}}</p>
-<p id="saved_instructions">{{instructions}}</p>
-Tried: <input data-id={{id}} type="checkbox" name="complete" id="complete" {{complete}}><br />
-<a href="/recipes/{{id}}/edit" class="button">Edit Drink</a><br>
-<button id="delete" data-id={{id}} class="button">Delete Drink</button><br>
-<a class="button" href="/recipes">Back to drinks</a>
-<!-- </div>
-</div> -->
+<div class="container2">
+    <h2>{{name}}</h2>
+    <p>{{beverageType}}</p>
+    <p id="saved_ingredients">{{measurements}} {{ingredients}}</p>
+    <p id="saved_instructions">{{instructions}}</p>
+    Tried:
+    <input data-id={{id}} type="checkbox" name="complete" id="complete" {{complete}}>
+    <br />
+    <a href="/recipes/{{id}}/edit" class="button">Edit Drink</a>
+    <br>
+    <button id="delete" data-id={{id}} class="button">Delete Drink</button>
+    <br>
+    <a class="button" href="/recipes">Back to drinks</a>
 </div>
 </body>
+
 </html>

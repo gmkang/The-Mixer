@@ -53,18 +53,6 @@ $(() => {
 	});
 
 
-// const saveRecipe = () => {
-// 	$.ajax({
-// 		url: '/',
-// 		method: 'POST'
-// 		data: {
-
-// 		}
-// 	})
-// }
-// })
-
-
 $('#save').on('click', (e) => {
 	e.preventDefault();
 	console.log('save click');
@@ -98,6 +86,7 @@ $('#ingredients > li').each(function(index) {
 		});
 
 });
+
 
 $('#delete').on('click', e => {
 	e.preventDefault();

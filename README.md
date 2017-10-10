@@ -32,8 +32,8 @@ Bartenders/Event Planners & Hosts
 Parents
 - Although any of the drinks can be modified as a mocktail, we also offer non-alcoholic beverages like smoothies, juices and teas. Create your kid's favorite drink and save it on the app. Or adjust wild drinks that are kid-friendly!
 
-##Unsolved Problems:
-- The  delete button has been sporadically acting up. 
+##Unsolved Problems: 
 - Displaying all saved recipes on one page. 
+- With more time, CSS needs to be cleaned up. 
 
 
