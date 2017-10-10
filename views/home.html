@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container">
-	<a href="/tasks/show" class="side">Archives</a>
+	<a href="/tasks/show/{{id}}" class="side">Archives</a>
 	</body><br>
 	<a href="/users/logout" class="side" id="logout">Logout</a>
 	<h1>The Mixer</h1>
@@ -19,6 +19,7 @@
 	<img src="{{{strDrinkThumb}}}" id="img">
 	
 	<div class="inner_container">
+
 	<h2 id="recipeName">{{strDrink}}</h2>
 	<form action="/recipes" method="GET">
 	

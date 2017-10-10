@@ -15,9 +15,12 @@
 	<a href="/tasks/show" class="side">Archives</a>
 	</body><br>
 	<a href="/users/logout" class="side" id="logout">Logout</a>
-	<h1>The Mixer</h1>
-<h3>Saved Recipes</h3>
-	<img src="{{{image}}}" class="saved_image">
+	<h1 id="saved_h1">The Mixer</h1>
+<h3 id="saved_h3">Saved Recipes</h3>
+<div class="six columns">
+<img src="{{{image}}}" class="saved_image">
+ <div class="six columns offset-by-seven">
+	
 	<div class="container1">
 <h2>{{name}}</h2>
 <p>{{beverageType}}</p>
@@ -29,6 +32,6 @@ Tried: <input data-id={{id}} type="checkbox" name="complete" id="complete" {{com
 <a class="button" href="/tasks">Back to drinks</a>
 </div>
 </div>
-
+</div>
 </body>
 </html>
