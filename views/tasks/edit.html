@@ -6,32 +6,36 @@
 	<link rel="stylesheet" href="/css/style.css">
  <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/skeleton.css">
-  <link href="https://fonts.googleapis.com/css?family=Acme|BenchNine|Francois+One|Open+Sans+Condensed:300|Satisfy|Rouge+Script|Dancing+Script" rel="stylesheet">rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Acme|BenchNine|Francois+One|Open+Sans+Condensed:300|Satisfy|Rouge+Script|Dancing+Script" rel="stylesheet">
 	<script src="/js/jquery.js"></script>
   <script src="/js/script.js"></script>
 </head>
 <body>
 	<div class="container">
-		<h1>Edit Beverage</h1>
+		<a href="/tasks/show" class="side">Archives</a>
+	</body><br>
+	<a href="/users/logout" class="side" id="logout">Logout</a>
+	<h1>The Mixer</h1>
+		<h2>Edit Beverage</h2>
 	<form class="beverage_edit" id="beverageEdit">
 		<label>Title:</label>
-		<input id="edit-title" value={{name}}>
+		<input id="edit-title" value="{{name}}">
 		<br>
 		<label>Measurements</label>
-		<input id="edit-measurements" value={{measurements}}>
-		<input id="edit-measurements" value={{measurements}}>
-		<input id="edit-measurements" value={{measurements}}>
+		<input id="edit-measurements" value="{{measurements}}">
+		<!-- <input id="edit-measurements" value={{measurements}}>
+		<input id="edit-measurements" value={{measurements}}> -->
 		<br>
 		<label>Ingredients</label>
-		<input id="edit-ingredients" value={{ingredients}}>
-		<input id="edit-ingredients" value={{ingredients}}>
-		<input id="edit-ingredients" value={{ingredients}}>
+		<input id="edit-ingredients" value="{{ingredients}}">
+		<!-- <input id="edit-ingredients" value={{ingredients}}>
+		<input id="edit-ingredients" value={{ingredients}}> -->
 		<br>
 		<label>Instructions</label>
-		<input id="edit-instructions" value={{instruction}}>
+		<input id="edit-instructions" value="{{instructions}}"">
 		<br>
 		<label>Image</label>
-		<input id="edit-image" value={{image}}>
+		<input id="edit-image" value="{{image}}">
 		<br>
 		<select class="one column" id="edit-beverageType">
         <option value="Alcoholic">Alcoholic</option>

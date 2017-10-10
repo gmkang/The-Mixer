@@ -31,6 +31,7 @@ router.get('/new', auth.restrict,
 router.get('/:id', auth.restrict,
 	Recipe.findById, (req, res) => {
 		const { saved } = res.locals;
+		saved.complete = saved.complete ? 'checked' : '';
 		res.render('tasks/show', saved);
 	})
 
@@ -40,6 +41,17 @@ router.get('/:id/edit', auth.restrict,
 		res.render('tasks/edit', saved);
 	})
 
+router.get(
+	'/recipes',
+	auth.restrict,
+	User.findByEmailMiddleware,
+	(req, res) => {
+		console.log('in handler for /recipes');
+		console.log('req.user:');
+		console.log(req.user);
+		res.render('/recipes', { user: res.locals.userData });
+	}
+);
 
 router.post('/', auth.restrict,
 	User.findByEmailMiddleware,
@@ -61,12 +73,20 @@ router.post('/', auth.restrict,
 		res.json(save);
 	})
 
-// router.delete('/:id', auth.restrict,
+router.put('/:id/complete', Recipe.complete, (req, res) => {
+  res.send('changes complete');
+})
+
+// router.delete('/:id/show', auth.restrict,
 // 	Recipe.destroy, (req, res) => {
 // 		console.log('recipe deleting from controller')
-// 		res.render('/home', res.locals.saved);
+// 		res.redirect('tasks/show', res.locals.saved);
+// 	})
+// router.delete('/:id', auth.restrict,
+// 	Recipe.destroy, (req, res) => {
+// 		res.send('deleted')
 // 	})
 
 
-module.exports = router;
 
+module.exports = router;

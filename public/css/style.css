@@ -84,6 +84,15 @@ img {
 	margin-left: 5px;
 }
 
+.container1 {
+	width: 80%;
+	height: 80%;
+}
+
+.container1 p {
+	font-size: 18px;
+}
+
 #new {
 	border: 1px dashed #FCA300;
 	height: 100vh;
@@ -97,7 +106,7 @@ img {
 	padding-bottom: 3px;
 }
 
-#main_image {
+#img {
 	margin-top: 53px;
 	margin-bottom: 10px;
 	float: right;
@@ -136,6 +145,21 @@ img {
 	font-size: 27px;
 	font-family: 'BenchNine', sans-serif;
 	margin-right: 10px;
+}
+
+#concoction {
+	font-family: 'BenchNine', sans-serif;
+	font-size: 35px;
+	margin-left: 7px;
+}
+
+.saved_image{
+	height: 300px;
+	width: 400px;
+}
+
+#recipeName {
+	top: 18%;
 }
 
 a:hover {

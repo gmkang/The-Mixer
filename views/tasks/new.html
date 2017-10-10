@@ -11,21 +11,25 @@
   <script src="../js/script.js"></script>
 </head>
 <body>
-	<div class="container">
-		<h1>Create Concoction</h1>
+		<a href="/tasks/show/{{id}}" class="side">Archives</a>
+	</body><br>
+	<a href="/users/logout" class="side" id="logout">Logout</a>
+	<h1>The Mixer</h1>
+		<h2 id="concoction">Create Concoction</h2>
+		<div class="ten columns">
 		<form id='new-task'>
 		<label for="title">Title</label>
 		<input type="text" name="title" id="title">
 		<br>
 		<label for="measurements">Measurements</label>
 		<input type="text" id="measurements" name="measurements">
-		<input type="text" id="measurements" name="measurements">
-		<input type="text" id="measurements" name="measurements">
+		<!-- <input type="text" id="measurements" name="measurements">
+		<input type="text" id="measurements" name="measurements"> -->
 		<br>
 		<label for="ingredients">Ingredients</label>
 		<input type="text" id="ingredients" name="ingredients">
-		<input type="text" id="ingredients" name="ingredients">
-		<input type="text" id="ingredients" name="ingredients">
+<!-- 		<input type="text" id="ingredients" name="ingredients">
+		<input type="text" id="ingredients" name="ingredients"> -->
 		<br>
 		<label for="instructions">Instructions</label>
 		<textarea name="instructions" rows="8" cols="60" id="instructions"></textarea>
@@ -39,11 +43,13 @@
       </select>  
     <br>
     <div>
+    <br>
     <button class="submit">Mix it up</button>
     <a class="button" href="/tasks">Back to drinks</a>
     <a href="/recipes/show" class="button">Saved Recipes</a>
     </div>
 	</form>
 	</div>
+		</div>
 </body>
 </html>

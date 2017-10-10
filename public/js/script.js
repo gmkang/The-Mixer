@@ -2,7 +2,7 @@ $(() => {
 	console.log('JS OKAY!');
 
 	function refreshIt() {
-		window.location.reload();
+		location.reload();
 	}
 	$('#refresh').click(refreshIt);
 
@@ -58,7 +58,7 @@ $(() => {
 // 		url: '/',
 // 		method: 'POST'
 // 		data: {
-			
+
 // 		}
 // 	})
 // }
@@ -68,39 +68,58 @@ $(() => {
 $('#save').on('click', (e) => {
 	e.preventDefault();
 	console.log('save click');
+	let ingredients = [];
+	let measurements = [];
+
+$('#ingredients > li').each(function(index) {
+	let split = $(this).text().split('-');
+	measurements.push(split[0]);
+	ingredients.push(split[1]);
+});
 
 	const recipeData = {
-			name: $('#title').val(),
-			measurements: $('#measurements').val(),
-			ingredients: $('#ingredients').val(),
-			instructions: $('#instructions').val(),
-			beverageType: $('#beverageType').val(),
-			image: $('#img_url').val()
-		}
-		console.log('save', recipeData)
+		name: $('recipeName').text(),
+		measurements: measurements.join(','),
+		ingredients: ingredients.join(','),
+		instructions: $('#instructions').text(),
+		beverageType: $('#alcoholPref').text(),
+		image: $('#img').attr('src')
+	};
 
-		$.ajax('/tasks/', {
+
+		$.ajax(window.location.pathname, {
 			method: 'POST',
-			recipeData: recipeData,
+			data: recipeData,
 			success: data => {
-				window.location.href = `/recipes/show`;
+				window.location.href = `/recipes/${data.id}`;
 		},
 			error: err => console.log(err)
 		});
 
-})
+});
 
 // $('#delete').on('click', e => {
 // 	e.preventDefault();
-
+// 	console.log('deleted!')
+// }
 // 	console.log('Deleting Drink!')
-// 	// const id = $('event.target').attr('data-id');
+// 	const id = $('event.target')
 // 	$.ajax({
+// 		url: `/tasks/show/${id}`,
+// 		type: 'DELETE',
+// 		success: (data) => {
+// 			$('#delete[data-id=${id}]').remove();
+// 		},
+// 		error: (err) => {
+// 			console.log(err);
+// 		}
+// 	})
+// }
 // 		method: 'DELETE', 
 // 		url: $(this).data('url')
 // 		success: data => {
 
-// 			window.location.href = '/recipes/';
+// 			window.location.href = '/tasks/{data.id}';
 // 		}
 // 		error: err => console.log(err)
 // 	})

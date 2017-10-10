@@ -16,14 +16,14 @@
 	<h1>The Mixer</h1>
 	
 	{{#alcohol}}
-	<img src="{{{strDrinkThumb}}}" id="main_image">
+	<img src="{{{strDrinkThumb}}}" id="img">
 	
 	<div class="inner_container">
+	<h2 id="recipeName">{{strDrink}}</h2>
+	<form action="/recipes" method="GET">
 	
-	<form action="/recipes" method="POST">
-	<h2>{{strDrink}}</h2>
 	<p id="alcoholPref">{{strAlcoholic}}</p>
-	<ul class="ingredients">
+	<ul id="ingredients">
 		<li>{{strMeasure1}} {{strIngredient1}}</li>
 		<li>{{strMeasure2}} {{strIngredient2}}</li>
 		<li>{{strMeasure3}} {{strIngredient3}}</li>
@@ -38,9 +38,9 @@
 	<br>
 	<br>
 	<br>
-
+<button id="refresh">Another, please!</button>
 	</div>
-		<button id="refresh">Another, please!</button>
+		
 	
 </body>
 

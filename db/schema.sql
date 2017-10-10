@@ -12,10 +12,14 @@ CREATE TABLE users (
 CREATE TABLE savedRecipes (
 	id BIGSERIAL PRIMARY KEY,
 	name VARCHAR,
-	measurements VARCHAR,
-	ingredients VARCHAR,
+	measurements VARCHAR, /*[1]*/
+	ingredients VARCHAR,/*[1]*/
 	instructions TEXT,
 	image TEXT,
 	beverageType VARCHAR,
+	complete BOOLEAN DEFAULT FALSE,
 	user_id BIGINT REFERENCES users(id)
 );
+
+INSERT INTO savedRecipes (name, measurements, ingredients, instructions, image, beverageType) VALUES 
+('Cucumber Mojito', '{4oz, 2oz, 2 sprigs}', '{Club soda, Sprite, mint & cucumber}', 'Muddle mint and cucumber then add ice and pour sprite and club soda', 'https://cookswithcocktails.com/wp-content/uploads/2014/09/Mojito-3.jpg', 'Non-alcoholic');

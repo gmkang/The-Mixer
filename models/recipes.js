@@ -100,12 +100,31 @@ Recipe.save = (req, res, next) => {
 		.catch(err => {
 			console.log('ERROR saving recipe')
 		})
-};
+}
+
+Recipe.complete = (req, res, next) => {
+  const {complete} = req.body;
+  const {id} = req.params;
+  db.oneOrNone(`UPDATE savedRecipes SET complete = $1 WHERE id = $2`, [complete, id])
+    .then(()=> next())
+    .catch(err => console.log(err));
+}
 
 // Recipe.destroy = (req, res, next) => {
-// const id = numericParam(req.params, "recipeId");
-// db.none('DELETE FROM savedRecipes WHERE id = $1', [id])
-// .then(() => {
+// 	const { id } = req.params;
+// 	db.none('DELETE FROM savedRecipes WHERE id = $1', [id])
+// 	.then(() => next())
+// 		.catch(err => console.log(err));
+// 	}
+// Recipe.destroy = (req, res, next) => {
+// const id = parseInt(req.params.id);
+// db.result('DELETE FROM savedRecipes WHERE id = $1', [id])
+// .then((result) => {
+// 	res.status(200)
+// 	.json({
+// 		status: 'success',
+// 		message: `Recipe ${result.name} removed`
+// 	});
 // 	next();
 // }).catch(err => {
 // 	console.log('error deleting in MODELS')
