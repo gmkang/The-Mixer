@@ -6,15 +6,17 @@
 	<link rel="stylesheet" href="/css/style.css">
  <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/skeleton.css">
+  <link href="https://fonts.googleapis.com/css?family=Acme|BenchNine|Francois+One|Satisfy" rel="stylesheet">
 	<script src="../js/jquery.js"></script>
   <script src="../js/script.js"></script>
 </head>
 <body>
-<div class="container">
+
 <h1>Saved Recipes</h1>
 	<img src="{{{image}}}" class="saved_image">
-<h2>{{name}}</h2>
-<p id="italicize">{{beverageType}}</p>
+	<div class="container1">
+<h2>{{name}}|</h2>
+<p>{{beverageType}}</p>
 <p>{{measurments}} {{ingredients}}</p>
 <p>{{instructions}}</p>
 <a href="/recipes/{{id}}/edit" class="button">Edit Drink</a><br>

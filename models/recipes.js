@@ -4,6 +4,22 @@ const db 		= require('../db/config');
 const Recipe = {};
 
 
+function numericParam(reqParams, parameterName) {
+    if (typeof parameterName !== 'string') {
+         throw new Error('parameterName must be a string!')
+     }
+     const paramString = reqParams[parameterName];
+     if (paramString === undefined) {
+        throw new Error(parameterName + ' is undefined!');
+     }
+     const param = Number(paramString);
+     if (isNaN(param)) {
+         throw new Error('param is not a number! paramString: ' + paramString);
+     }
+     return param;
+ }
+
+
 Recipe.randomBeverage = (req, res, next) => {
 	axios({
 		url: 'http://www.thecocktaildb.com/api/json/v1/1/random.php',
@@ -72,15 +88,28 @@ Recipe.update = (req, res, next)  => {
  	})
 }
 
-Recipe.destroy = (req, res, next) => {
-	const { id } = req.params;
-	db.none('DELETE FROM savedRecipes WHERE id=$1', [id])
-	.then(() => {
+Recipe.save = (req, res, next) => {
+	const {name, measurements, ingredients, instructions, image, beverageType} = req.body;
+	const { id } = req.body;
+	console.log(req.body)
+	db.one('INSERT INTO savedRecipes (name, measurements, ingredients, instructions, image, beverageType, user_id) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [name, measurements, ingredients, instructions, image, beverageType, req.user.id])')
+	.then(save => {
+		res.locals.save = save;
 		next();
 	})
-	.catch(err => {
-		console.log(`Error DELETING! ${err}`)
-	});
+		.catch(err => {
+			console.log('ERROR saving recipe')
+		})
 };
+
+// Recipe.destroy = (req, res, next) => {
+// const id = numericParam(req.params, "recipeId");
+// db.none('DELETE FROM savedRecipes WHERE id = $1', [id])
+// .then(() => {
+// 	next();
+// }).catch(err => {
+// 	console.log('error deleting in MODELS')
+// })
+// }
 
 module.exports = Recipe;

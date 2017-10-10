@@ -53,19 +53,58 @@ $(() => {
 	});
 
 
-$('#delete').on('click', event => {
-	event.preventDefault();
+// const saveRecipe = () => {
+// 	$.ajax({
+// 		url: '/',
+// 		method: 'POST'
+// 		data: {
+			
+// 		}
+// 	})
+// }
+// })
 
-	console.log('Deleting Drink!')
-	const id = $('event.target').attr('data-id');
-	$.ajax(`tasks/${id}`, {
-		method: 'DELETE', 
-		success: data => {
-			window.location.href = `/recipes/${data.id}`;
+
+$('#save').on('click', (e) => {
+	e.preventDefault();
+	console.log('save click');
+
+	const recipeData = {
+			name: $('#title').val(),
+			measurements: $('#measurements').val(),
+			ingredients: $('#ingredients').val(),
+			instructions: $('#instructions').val(),
+			beverageType: $('#beverageType').val(),
+			image: $('#img_url').val()
 		}
-		error: err => console.log(err)
-	})
+		console.log('save', recipeData)
+
+		$.ajax('/tasks/', {
+			method: 'POST',
+			recipeData: recipeData,
+			success: data => {
+				window.location.href = `/recipes/show`;
+		},
+			error: err => console.log(err)
+		});
+
 })
+
+// $('#delete').on('click', e => {
+// 	e.preventDefault();
+
+// 	console.log('Deleting Drink!')
+// 	// const id = $('event.target').attr('data-id');
+// 	$.ajax({
+// 		method: 'DELETE', 
+// 		url: $(this).data('url')
+// 		success: data => {
+
+// 			window.location.href = '/recipes/';
+// 		}
+// 		error: err => console.log(err)
+// 	})
+// })
 
 
 

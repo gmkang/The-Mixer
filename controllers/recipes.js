@@ -27,6 +27,7 @@ router.get('/new', auth.restrict,
 		res.render('tasks/new');
 	})
 
+
 router.get('/:id', auth.restrict,
 	Recipe.findById, (req, res) => {
 		const { saved } = res.locals;
@@ -53,12 +54,18 @@ router.put('/:id/edit', auth.restrict,
 		res.json(edit);
 	})
 
-router.delete('/:id/', auth.restrict,
-	Recipe.destroy, (req, res) => {
-		console.log('controller deleting!')
-		res.render('tasks/show', res.locals)
+router.post('/', auth.restrict, 
+	User.findByEmailMiddleware,
+	Recipe.save, (req, res) => {
+		const { save } = res.locals;
+		res.json(save);
 	})
 
+// router.delete('/:id', auth.restrict,
+// 	Recipe.destroy, (req, res) => {
+// 		console.log('recipe deleting from controller')
+// 		res.render('/home', res.locals.saved);
+// 	})
 
 
 module.exports = router;

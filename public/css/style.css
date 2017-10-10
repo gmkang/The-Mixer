@@ -1,38 +1,147 @@
 main {
 	margin: 0 auto;
 	text-align: center;
-	width: 50%;
-	height: 50%;
+	width: 100%;
+	height: 100%;
+}
 
+.container {
+	height: 100%;
+	width: 100%;
+}
+
+#header {
+	background-position: top center;
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
 }
 
 h1 {
-	color: orange;
+	color: white;
+	text-shadow: 4px 4px 16px #FCA300;
 	text-align: center;
-	margin: 0 auto;
+	margin: 2px;
 	font-family: 'Rouge Script', cursive;
-	font-size: 60px;
-	font-weight: 4em;
-	padding-top: 10px;
-	top: 500px;
+	font-size: 90px;
+	font-weight: 5em;
+	padding-top: 5px;
+}
+
+h2 {
+	font-family: 'Satisfy', cursive;
+	font-size: 30px;
 }
 
 p {
 	text-align: center;
-	margin: 0 auto;
-	font-family: 'Salsa', cursive;
+	margin-top: 4px;
+	font-family: 'BenchNine', sans-serif;
+	margin-right: 10px;
 }
 
 input {
-	padding: 2px;
-	margin: 4px;
+	padding: 1px;
+	margin: 0;
 }
 
-button {
-	padding: 2px;
-	margin: 4px;
+li {
+	font-family: 'Open Sans Condensed', sans-serif;
+	list-style-type: none;
+	font-size: 20px;
 }
 
 a {
-	margin: 8px;
+	font-family: 'Francois One', sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 18px;
+	color: #1EAEDB;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+img {
+	display: center;
+	margin: 0 auto;
+}
+
+#login_header{
+	font-size: 110px;
+}
+
+#join {
+	color: #FFD180;
+	text-shadow: 4px 4px 10px #E4D600;
+	font-size: 85px;
+}
+
+.inner_container {
+	margin-top: 14%;
+	width: 80%;
+	margin-right: 10px;
+	margin-left: 5px;
+}
+
+#new {
+	border: 1px dashed #FCA300;
+	height: 100vh;
+	width: 100vw;
+	text-align: center;
+	display: center;
+}
+
+#main_header {
+	margin-bottom: 10px;
+	padding-bottom: 3px;
+}
+
+#main_image {
+	margin-top: 53px;
+	margin-bottom: 10px;
+	float: right;
+	position: relative;
+}
+
+
+#alcoholPref {
+	font-family: 'Dancing Script', cursive;
+	text-align: left;
+	font-size: 18px;
+}
+
+.side {
+	display: block;
+	float: right;
+}
+
+#save {
+	margin: 0 auto;
+	text-align: center;
+	display: block;
+}
+
+#refresh {
+	position: absolute;
+	float: right;
+	margin-top: 10px;
+}
+
+#new_recipe {
+	text-align: center;
+}
+
+#instructions {
+	font-size: 27px;
+	font-family: 'BenchNine', sans-serif;
+	margin-right: 10px;
+}
+
+a:hover {
+	color: #9AD192;
+}
+
+a:visited {
+	color: #F4D33D;
 }

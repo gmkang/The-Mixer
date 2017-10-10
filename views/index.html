@@ -7,20 +7,19 @@
   <link rel="stylesheet" href="/css/style.css">
  <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/skeleton.css">
-   <link href="https://fonts.googleapis.com/css?family=Caveat+Brush|Francois+One|Rancho|Rouge+Script|Salsa" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Caveat+Brush|Francois+One|Rancho|Rouge+Script|Salsa|Dancing+Script" rel="stylesheet">
   <script src="../js/jquery.js"></script>
   <script src="../js/script.js"></script>
 </head>
 <body>
   <main>
     <section>
-    <div class="row">
-      <div class="six columns">
-    <h1>The <br> Mixer</h1>
-      <p>Under construction </p>
-      </div>
-      <form action="/users/login" method="POST">
-      <div class="six columns">
+    <div class="eight columns">
+    <div class="five columns offset-by-six">
+     <h1 id="login_header">The Mixer</h1>
+     <img src="../css/header_image.png" id="header">
+     <p>Various drink recipes to choose from for any occasion even for the most undecisive of people.</p>
+     <form action="/users/login" method="POST">
         <label for="email">Email</label><br>
         <input id="email" type="text" name="user[email]" placeholder="my@email.com"><br>
         <label for="password">Password</label><br>
@@ -30,6 +29,7 @@
       <div>
         <a href="/users/new">Sign Up</a>
       </div>
+    </div>
     </div>
     </section>
   </main>
